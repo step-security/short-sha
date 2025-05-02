@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: step-security/short-sha@v3.0
+      - uses: step-security/short-sha@v3
         id: short-sha
         with:
           length: 6
