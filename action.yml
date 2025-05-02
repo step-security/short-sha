@@ -1,0 +1,21 @@
+name: 'short-sha'
+description: 'Provide a description here'
+author: 'step-security'
+branding:
+  color: orange
+  icon: git-pull-request
+inputs:
+  length:      
+    description: 'length of the shortened sha1'
+    default: '7'
+    required: false
+  variable_name:
+    description: "name of the exported env variable"
+    default: "SHA"
+    required: false
+outputs:
+  sha:
+    description: 'shortened SHA'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
