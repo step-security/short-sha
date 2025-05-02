@@ -3,10 +3,10 @@ name: NPM Audit Fix Run
 on:
   workflow_dispatch:
     inputs:
-      force:
-        description: "Use --force flag for npm audit fix?"
-        required: true
-        type: boolean
+      package_manager:
+        description: "Specify package manager (npm or yarn)"
+        required: false
+        default: "yarn"
       base_branch:
         description: "Specify a base branch"
         required: false
@@ -23,7 +23,7 @@ jobs:
   audit-fix:
     uses: step-security/reusable-workflows/.github/workflows/audit_fix.yml@v1
     with:
-      force: ${{ inputs.force || false }}
+      package_manager: "yarn"
       base_branch: ${{ inputs.base_branch || 'main' }}
       script: ${{ inputs.script || 'yarn all' }}
 
